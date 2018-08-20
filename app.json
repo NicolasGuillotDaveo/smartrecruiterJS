@@ -1,0 +1,9 @@
+{
+    "name": "smartrecruiterJS",
+    "description": "Webhook pour notre app en node js",
+    "repository": "https://github.com/NicolasGuillotDaveo/smartrecruiterJS.git",
+    "keywords": [
+        "chatbot",
+        "webhook"
+    ]
+}

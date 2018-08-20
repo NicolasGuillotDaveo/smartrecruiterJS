@@ -1,0 +1,21 @@
+{
+  "name": "webhooksmartrecruiter",
+  "version": "1.0.0",
+  "description": "webhook pour le smartrecruiter",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webhook",
+    "dialogflow",
+    "nodejs"
+  ],
+  "author": "Nicolas Guillot",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
