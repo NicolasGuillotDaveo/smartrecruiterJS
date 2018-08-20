@@ -9,7 +9,7 @@ server.use(bodyParser.urlencoded({extended: true
 
 server.use(bodyParser.json());
 
-server.post('/smartrecruiter',(req,res)=>{
+server.post('',(req,res)=>{
     const movieToSearch= req.body.result && req.body.result.parameters && req.body.result.parameters.movie
     const reqUrl = encodeURI(`http://omdbapi.com/?t=${movieToSearch}&apikey=${API_KEY}`);
     http.get(reqUrl, (responseFromAPI) => {
