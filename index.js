@@ -34,8 +34,7 @@ server.post('',(req,res)=>{
     {
         return res.json({
             fulfillmentText: 'hello',
-            source: 'webhook node js',
-            test: "test"
+            source: 'webhook node js'
    });
     }    
     //     });
