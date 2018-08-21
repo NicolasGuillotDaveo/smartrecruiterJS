@@ -22,8 +22,9 @@ server.post('',(req,res)=>{
     //         let dataToSend= movieToSearch === 'The Godfather' ? `I don't have the required info on that. Here's some infon on 'The Godfather' instead.\n` : '';
     //         dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}`;
     const actionDF = req && req.queryResult && req.queryResult.action;
-    
-    if(actionDF == "input.welcome")
+    debugger;
+    console.log(actionDF);
+    if(actionDF === "input.welcome")
     {
         return res.json({
             fulfillmentText: `Bienvenue prénom, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
