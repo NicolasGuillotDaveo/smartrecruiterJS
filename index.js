@@ -33,6 +33,12 @@ server.post('',(req,res)=>{
         source: 'webhook node js'
     });
      break;
+     case "GetPoste":
+     return res.json({
+        fulfillmentText: `Faisons connaissance à présent! Si j'ai bien compris à travers ton profil LinkedIn, tu es Product Owner à la Société Générale?`,
+        source: 'webhook node js'
+    });
+     
      default: 
      return res.json({
         fulfillmentText: basicAnswer,
