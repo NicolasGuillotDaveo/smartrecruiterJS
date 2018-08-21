@@ -36,7 +36,7 @@ server.post('',(req,res)=>{
 //             fulfillmentText: "cc",
 //             source: 'webhook node js'
 //    });
-return res.json(req);
+return res.json(JSON.parse(req));
     }    
     //     });
      }
