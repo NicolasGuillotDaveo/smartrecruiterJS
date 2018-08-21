@@ -23,7 +23,7 @@ server.post('',(req,res)=>{
     //         dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}`;
     const actionDF = req.queryResult && req.queryResult.action;
     
-    if(actionDF === 'input.welcome')
+    if(actionDF === "input.welcome")
     {
         return res.json({
             fulfillmentText: `Bienvenue prénom, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
