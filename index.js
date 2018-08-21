@@ -24,10 +24,11 @@ server.post('',(req,res)=>{
     const actionDF = req && req.queryResult && req.queryResult.action;
     if(actionDF === "input.welcome")
     {
-        return res.json({
-            fulfillmentText: `Bienvenue prénom, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
-            source: 'webhook node js'
-        });
+        // return res.json({
+        //     fulfillmentText: `Bienvenue prénom, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
+        //     source: 'webhook node js'
+        // });
+        return res.json(req);
     }
     else
     {
