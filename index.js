@@ -10,21 +10,11 @@ server.use(bodyParser.urlencoded({extended: true
 server.use(bodyParser.json());
 
 server.post('',(req,res)=>{
-    // const movieToSearch= req.body.result && req.body.result.parameters && req.body.result.parameters.movie
-    // const reqUrl = encodeURI(`http://omdbapi.com/?t=${movieToSearch}&apikey=${API_KEY}`);
-    // http.get(reqUrl, (responseFromAPI) => {
-    //     let completeResponse = '';
-    //     responseFromAPI.on('data', (chunk) => {
-    //         completeResponse += chunk;
-    //     });
-    //     responseFromAPI.on('end', () => {
-    //         const movie = JSON.parse(completeResponse);
-    //         let dataToSend= movieToSearch === 'The Godfather' ? `I don't have the required info on that. Here's some infon on 'The Godfather' instead.\n` : '';
-    //         dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}`;
-   // const actionDF = req['queryResult']['action'];
+//On place dans IntentName le nom de l'intent détecté par Dialogflow
    let IntentName = req.body.queryResult && req.body.queryResult.intent && req.body.queryResult.intent.displayName ? req.body.queryResult.intent.displayName :'unknown';
+ //On place dans basicAnswer la réponse de base proposée par Dialogflow par rapport à l'intent détecté
    let basicAnswer = req.body.queryResult && req.body.queryResult.fulfillmentText ? req.body.queryResult.fulfillmentText :'unknown';
-    
+//on diffère les cas en fonction du nom de l'intent
    switch(IntentName){
     case "Présentation - Bienvenue":
     return res.json({
@@ -39,16 +29,12 @@ server.post('',(req,res)=>{
     });
     break;
      
-     default: 
+     default: //si l'intent ne demande pas de personnaliser le message, alors on renvoie la réponse de base.
      return res.json({
         fulfillmentText: basicAnswer,
         source: 'webhook node js'
 });
    }
-   
-  
-   
-    //     });
      }
      , (error) =>{
         return res.json({
@@ -57,7 +43,6 @@ server.post('',(req,res)=>{
             source: 'webhook node js'
         });
     });
-//});
 
 server.listen((process.env.PORT || 8000), () => {
     console.log("Server is up and running...");
