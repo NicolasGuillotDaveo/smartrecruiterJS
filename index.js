@@ -23,20 +23,25 @@ server.post('',(req,res)=>{
     //         dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}`;
    // const actionDF = req['queryResult']['action'];
    let actionDF = req.body.queryResult && req.body.queryResult.action ? req.body.queryResult.action :'unknown';
-    if(actionDF === "input.welcome")
-    {
-        return res.json({
-            fulfillmentText: `Bienvenue prénom, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
-            source: 'webhook node js'
-        });
-    }
-    else
-    {
-        return res.json({
-            fulfillmentText: actionDF,
-            source: 'webhook node js'
-   });
-    }    
+   let basicAnswer = res.body.queryResult && req.body.queryResult.fulfillmentText ? req.body.queryResult.fulfillmentText :'unknown';
+    
+   switch(actionDF)
+   {
+    case "input.welcome":
+    return res.json({
+        fulfillmentText: `Bienvenue prénom, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
+        source: 'webhook node js'
+    });
+     break;
+     default: 
+     return res.json({
+        fulfillmentText: basicAnswer,
+        source: 'webhook node js'
+});
+   }
+   
+  
+   
     //     });
      }
      , (error) =>{
