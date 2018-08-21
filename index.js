@@ -28,13 +28,13 @@ server.post('',(req,res)=>{
    switch(actionDF){
     case "input.welcome":
     return res.json({
-        fulfillmentText: `Bienvenue prénom, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
+        fulfillmentText: `Bienvenue {prénom}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
         source: 'webhook node js'
     });
      break;
      case "GetPoste":
      return res.json({
-        fulfillmentText: `Faisons connaissance à présent! Si j'ai bien compris à travers ton profil LinkedIn, tu es Product Owner à la Société Générale?`,
+        fulfillmentText: `Faisons connaissance à présent! Si j'ai bien compris à travers ton profil LinkedIn, tu es {Poste} à {Société}?`,
         source: 'webhook node js'
     });
     break;
