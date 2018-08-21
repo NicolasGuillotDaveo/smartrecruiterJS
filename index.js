@@ -22,17 +22,17 @@ server.post('',(req,res)=>{
     //         let dataToSend= movieToSearch === 'The Godfather' ? `I don't have the required info on that. Here's some infon on 'The Godfather' instead.\n` : '';
     //         dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}`;
    // const actionDF = req['queryResult']['action'];
-   let actionDF = req.body.queryResult && req.body.queryResult.action ? req.body.queryResult.action :'unknown';
+   let IntentName = req.body.queryResult && req.body.queryResult.intent && req.body.queryResult.intent.displayName ? req.body.queryResult.intent.displayName :'unknown';
    let basicAnswer = req.body.queryResult && req.body.queryResult.fulfillmentText ? req.body.queryResult.fulfillmentText :'unknown';
     
-   switch(actionDF){
-    case "input.welcome":
+   switch(IntentName){
+    case " Présentation - Bienvenue ":
     return res.json({
         fulfillmentText: `Bienvenue {prénom}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
         source: 'webhook node js'
     });
      break;
-     case "GetPoste":
+     case "Presentation - Continuer":
      return res.json({
         fulfillmentText: `Faisons connaissance à présent! Si j'ai bien compris à travers ton profil LinkedIn, tu es {Poste} à {Société}?`,
         source: 'webhook node js'
