@@ -32,7 +32,7 @@ server.post('',(req,res)=>{
     }
     else
     {
-        const reqU=JSON.stringify(req);
+        const reqU=JSON.stringify(req.queryResult.action);
         return res.json({
             fulfillmentText: reqU,
             source: 'webhook node js'
