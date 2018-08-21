@@ -32,7 +32,7 @@ server.post('',(req,res)=>{
     else
     {
         return res.json({
-            fulfillmentText: req.queryResult.action,
+            fulfillmentText: "cc",
             source: 'webhook node js'
    });
     }    
