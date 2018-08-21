@@ -23,7 +23,7 @@ server.post('',(req,res)=>{
     //         dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}`;
    // const actionDF = req['queryResult']['action'];
    let actionDF = req.body.queryResult && req.body.queryResult.action ? req.body.queryResult.action :'unknown';
-   //let basicAnswer = res.body.queryResult && req.body.queryResult.fulfillmentText ? req.body.queryResult.fulfillmentText :'unknown';
+   let basicAnswer = req.body.queryResult && req.body.queryResult.fulfillmentText ? req.body.queryResult.fulfillmentText :'unknown';
     
    switch(actionDF){
     case "input.welcome":
@@ -41,7 +41,7 @@ server.post('',(req,res)=>{
      
      default: 
      return res.json({
-        fulfillmentText: 'basicanswer',
+        fulfillmentText: basicAnswer,
         source: 'webhook node js'
 });
    }
