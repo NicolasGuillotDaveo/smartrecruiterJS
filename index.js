@@ -32,10 +32,11 @@ server.post('',(req,res)=>{
     }
     else
     {
-        return res.json({
-            fulfillmentText: "cc",
-            source: 'webhook node js'
-   });
+//         return res.json({
+//             fulfillmentText: "cc",
+//             source: 'webhook node js'
+//    });
+return res.json(req);
     }    
     //     });
      }
