@@ -33,7 +33,7 @@ server.post('',(req,res)=>{
     {
         const reqU=JSON.stringify(req);
         return res.json({
-            fulfillmentText: reqU,
+            fulfillmentText: "cc",
             source: 'webhook node js'
    });
     }    
