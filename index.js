@@ -25,19 +25,19 @@ server.post('',(req,res)=>{
    let actionDF = req.body.queryResult && req.body.queryResult.action ? req.body.queryResult.action :'unknown';
    let basicAnswer = res.body.queryResult && req.body.queryResult.fulfillmentText ? req.body.queryResult.fulfillmentText :'unknown';
     
-   switch(actionDF)
-   {
-    case 'input.welcome':
+   switch(actionDF){
+    case "input.welcome":
     return res.json({
         fulfillmentText: `Bienvenue prénom, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
         source: 'webhook node js'
     });
      break;
-     case 'GetPoste':
+     case "GetPoste":
      return res.json({
         fulfillmentText: `Faisons connaissance à présent! Si j'ai bien compris à travers ton profil LinkedIn, tu es Product Owner à la Société Générale?`,
         source: 'webhook node js'
     });
+    break;
      
      default: 
      return res.json({
