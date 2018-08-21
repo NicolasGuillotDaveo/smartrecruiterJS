@@ -26,7 +26,7 @@ server.post('',(req,res)=>{
    let basicAnswer = req.body.queryResult && req.body.queryResult.fulfillmentText ? req.body.queryResult.fulfillmentText :'unknown';
     
    switch(IntentName){
-    case " Présentation - Bienvenue":
+    case "Présentation - Bienvenue":
     return res.json({
         fulfillmentText: `Bienvenue {prénom}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
         source: 'webhook node js'
