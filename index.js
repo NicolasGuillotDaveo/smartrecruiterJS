@@ -34,7 +34,7 @@ server.post('',(req,res)=>{
     {
         const reqU=JSON.stringify(req.queryResult.action);
         return res.json({
-            fulfillmentText: reqU,
+            fulfillmentText: actionDF,
             source: 'webhook node js'
    });
     }    
