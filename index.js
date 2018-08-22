@@ -22,7 +22,8 @@ server.post('',(req,res)=>{
      break;
      case "Presentation - Continuer":
      return res.json({
-        fulfillmentText: `Faisons connaissance à présent! Si j'ai bien compris à travers ton profil LinkedIn, tu es {Poste} à {Société}?`,
+        fulfillmentText: `{"text":"Faisons connaissance à présent! Si j'ai bien compris à travers ton profil LinkedIn, tu es {Poste} à {societe}",
+        "response":{"button":["oui c'est ça !","Non j'ai évolué depuis !"]}}`,
         source: 'webhook node js'
     });
     break;
