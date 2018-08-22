@@ -1,7 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const http = require('http');
-
 const server = express();
 server.use(bodyParser.urlencoded({extended: true
 }));
@@ -17,7 +15,10 @@ server.post('',(req,res)=>{
    switch(IntentName){
     case "Présentation - Bienvenue":
     return res.json({
-        fulfillmentText: `Bienvenue {prénom}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.`,
+        fulfillmentText: `{text: 'Bienvenue {prénom}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.',
+                          response: [
+                              button:"Enchanté"
+                          ]}`,
         source: 'webhook node js'
     });
      break;
