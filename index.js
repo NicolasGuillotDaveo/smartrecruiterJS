@@ -15,7 +15,7 @@ server.post('',(req,res)=>{
    switch(IntentName){
     case "Présentation - Bienvenue":
     return res.json({
-        fulfillmentText: `{"text":\`Bienvenue {prénom}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.\`,
+        fulfillmentText: `{"text":"Bienvenue {prénom}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.",
                             "response":{"button":"Enchanté"}}`,
         source: 'webhook node js'
     });
