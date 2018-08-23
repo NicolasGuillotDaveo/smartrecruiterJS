@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const server = express();
 server.use(bodyParser.urlencoded({extended: true
 }));
-
+UserId="1515";
 server.use(bodyParser.json());
 
 server.post('',(req,res)=>{
@@ -15,14 +15,15 @@ server.post('',(req,res)=>{
    switch(IntentName){
     case "Présentation - Bienvenue":
     return res.json({
-        fulfillmentText: `{"text":"Bienvenue {prénom}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.",
+        fulfillmentText: `{"text":"Bienvenue ${UserId}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.",
                             "response":{"button":["Enchanté"]}}`,
         source: 'webhook node js'
     });
+    UserId="1414";
      break;
      case "Presentation - Continuer":
      return res.json({
-        fulfillmentText: `{"text":"Faisons connaissance à présent! Si j'ai bien compris à travers ton profil LinkedIn, tu es {Poste} à {societe}",
+        fulfillmentText: `{"text":"${UserId} Faisons connaissance à présent! Si j'ai bien compris à travers ton profil LinkedIn, tu es {Poste} à {societe}",
         "response":{"button":["oui c'est ça !","Non j'ai évolué depuis !"]}}`,
         source: 'webhook node js'
     });
