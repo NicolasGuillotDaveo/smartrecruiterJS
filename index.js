@@ -5,7 +5,6 @@ server.use(bodyParser.urlencoded({extended: true
 }));
 
 server.use(bodyParser.json());
-
 server.post('',(req,res)=>{
 //On place dans IntentName le nom de l'intent détecté par Dialogflow
 let name= req.body.queryResult.parameters.name;
@@ -15,15 +14,17 @@ let name= req.body.queryResult.parameters.name;
 //on diffère les cas en fonction du nom de l'intent
    switch(IntentName){
     case "Présentation - Bienvenue":
+    global.userID="1515";
     return res.json({
-        fulfillmentText: `{"text":"Bienvenue ${name}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.",
+        fulfillmentText: `{"text":"Bienvenue ${global.userID}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.",
                             "response":{"button":["Enchanté"]}}`,
         source: 'webhook node js'
     });
+    global.userID="1414";
      break;
      case "Presentation - Continuer":
      return res.json({
-        fulfillmentText: `{"text":"Faisons connaissance à présent! Si j'ai bien compris à travers ton profil LinkedIn, tu es {Poste} à {societe}",
+        fulfillmentText: `{"text":"${global.userID}Faisons connaissance à présent! Si j'ai bien compris à travers ton profil LinkedIn, tu es {Poste} à {societe}",
         "response":{"button":["oui c'est ça !","Non j'ai évolué depuis !"]}}`,
         source: 'webhook node js'
     });
