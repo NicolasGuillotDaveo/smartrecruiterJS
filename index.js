@@ -14,13 +14,12 @@ let name= req.body.queryResult.parameters.name;
 //on diffère les cas en fonction du nom de l'intent
    switch(IntentName){
     case "Présentation - Bienvenue":
-    global.userID="1515";
+    global.userID=" ";
     return res.json({
         fulfillmentText: `{"text":"Bienvenue ${global.userID}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.",
                             "response":{"button":["Enchanté"]}}`,
         source: 'webhook node js'
     });
-    global.userID="1414";
      break;
      case "Presentation - Continuer":
      return res.json({
