@@ -8,6 +8,7 @@ server.use(bodyParser.json());
 
 server.post('',(req,res)=>{
 //On place dans IntentName le nom de l'intent détecté par Dialogflow
+let name= req.body.queryResult.parameters.name;
    let IntentName = req.body.queryResult && req.body.queryResult.intent && req.body.queryResult.intent.displayName ? req.body.queryResult.intent.displayName :'unknown';
  //On place dans basicAnswer la réponse de base proposée par Dialogflow par rapport à l'intent détecté
    let basicAnswer = req.body.queryResult && req.body.queryResult.fulfillmentText ? req.body.queryResult.fulfillmentText :'unknown';
@@ -15,7 +16,7 @@ server.post('',(req,res)=>{
    switch(IntentName){
     case "Présentation - Bienvenue":
     return res.json({
-        fulfillmentText: `{"text":"Bienvenue {prénom}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.",
+        fulfillmentText: `{"text":"Bienvenue ${name}, je m'appelle Léo, je suis le dernier né du Lab de Daveo.",
                             "response":{"button":["Enchanté"]}}`,
         source: 'webhook node js'
     });
